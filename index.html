@@ -11,7 +11,6 @@
       height: 100vh;
       background: url('image/1-01.png') no-repeat center center fixed;
       background-size: contain;
-      background-repeat: no-repeat;
       background-color: #000;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       position: relative;
@@ -19,8 +18,8 @@
 
     .overlay {
       position: absolute;
-      top: 60%;
-      left: 67%;
+      top: 50%;
+      left: 50%;
       transform: translate(-50%, -50%) scale(1.4);
       text-align: center;
       z-index: 10;
@@ -46,7 +45,7 @@
 
     .button-wrapper {
       position: absolute;
-      top: 67%;
+      top: 70%;
       left: 50%;
       transform: translate(-50%, -50%);
       z-index: 11;
@@ -81,16 +80,52 @@
     }
 
     .message {
-      width: 120%;
+      width: 100%;
+      max-width: 320px;
       height: auto;
     }
+
     .message1 {
-          width: 140%;
-          height: auto;
-        }
+      width: 100%;
+      max-width: 360px;
+      height: auto;
+    }
+
     @keyframes fadeIn {
       from { opacity: 0; transform: scale(0.8); }
       to { opacity: 1; transform: scale(1); }
+    }
+
+    /* Responsive cho thiết bị nhỏ */
+    @media (max-width: 480px) {
+      .overlay {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(1.1);
+      }
+
+      .logo-text {
+        width: 85vw;
+      }
+
+      .button-wrapper {
+        top: 80%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .accept-btn {
+        font-size: 14px;
+        padding: 10px 20px;
+      }
+
+      .message {
+        width: 80vw;
+      }
+
+      .message1 {
+        width: 85vw;
+      }
     }
   </style>
 </head>
