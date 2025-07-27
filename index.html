@@ -2,54 +2,55 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
   <title>Beyond The Top</title>
   <style>
-    /* Reset và cài đặt chung cho tất cả phần tử */
     * {
       box-sizing: border-box;
     }
 
-    /* Cài đặt cơ bản cho body: nền, font, căn giữa nội dung */
-    body {
+    html, body {
       margin: 0;
       padding: 0;
-      min-height: 100vh;
-      background: url('image/1-01.png') center center no-repeat;
-      background-size: cover;
-      background-color: #000;
+      width: 100%;
+      height: 100%;
+      background: #000;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
       overflow-x: hidden;
-      position: relative; /* Cho phép định vị tuyệt đối phần tử con */
+      position: relative;
     }
 
-    /* Animation nổi và phát sáng cho logo */
+    body {
+      background: url('image/BG_2.gif') center center no-repeat;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+    }
+
     @keyframes float-glow {
       0%, 100% {
         transform: translateY(0);
-        filter: drop-shadow(0 0 10px #ff00ff);
+        filter: drop-shadow(0 0 10px rgba(255, 0, 255, 0.4)); /* Màu hồng nhạt */
       }
       50% {
         transform: translateY(-10px);
-        filter: drop-shadow(0 0 25px #ff00ff);
+        filter: drop-shadow(0 0 25px rgba(255, 0, 255, 0.6)); /* Màu hồng sáng hơn chút */
       }
     }
 
-    /* Logo chính "BEYOND THE TOP" */
+
     .logo-text {
-      width: 90vw;
-      max-width: 500px;
+      width: 85vw;
+      max-width: 450px;
       height: auto;
       animation: float-glow 3s ease-in-out infinite;
-      margin-bottom: 30px;
+      margin-bottom: 20px;
+      display: none; /* Ẩn lúc đầu */
     }
 
-    /* Nút Accept */
     .accept-btn {
       padding: 12px 28px;
       font-size: 18px;
@@ -61,98 +62,81 @@
       cursor: pointer;
       box-shadow: 0 4px 20px rgba(59, 130, 246, 0.6);
       transition: all 0.3s ease;
-      position: absolute;
-      top: 60%;
-      left: 50%;
-      transform: translateX(-50%);
+      position: relative;
+      z-index: 10;
     }
 
-    /* Hiệu ứng hover cho nút Accept */
     .accept-btn:hover {
       background: linear-gradient(to right, #2563eb, #3b82f6);
-      transform: translateX(-50%) scale(1.05);
+      transform: scale(1.05);
     }
 
-    /* Container chứa các hình ảnh cảm ơn (hiển thị sau khi click) */
     .message-container {
-      display: none; /* Mặc định ẩn */
+      display: none;
       flex-direction: column;
       align-items: center;
       gap: 12px;
       margin-top: 20px;
       animation: fadeIn 1s ease-in-out forwards;
-      position: absolute;
-      top: 70%;
-      left: 50%;
-      transform: translateX(-50%);
     }
 
-    /* Các ảnh cảm ơn */
     .message, .message1 {
-      width: 90vw;
-      max-width: 600px;
+      width: 80vw;
+      max-width: 350px;
       height: auto;
     }
 
-    /* Animation xuất hiện mượt */
     @keyframes fadeIn {
       from { opacity: 0; transform: scale(0.8); }
       to { opacity: 1; transform: scale(1); }
     }
 
-    /* Responsive cho thiết bị nhỏ */
-    @media (max-width: 480px) {
-     .logo-text {
-        width: 120%;              /* Làm logo to hơn */
-        max-width: none;          /* Không giới hạn chiều rộng */
-        top: 10%;                 /* Điều chỉnh vị trí theo chiều dọc */
-        left: 20%;                /* Căn giữa ngang */
-        margin-left: 15%;
-        transform: translate(-50%, -50%); /* Dịch tâm để logo đúng giữa */
+    @media (max-width: 768px) {
+      .logo-text {
+        width: 130vw;
+        max-width: none;
+        margin-top: -50px;
+        margin-left: auto;
+        margin-right: auto;
+        object-fit: contain;
       }
+
+
       .accept-btn {
         font-size: 16px;
         padding: 10px 24px;
-        top: 65%;
       }
 
-      .message {
-        width: 110%;
-      }
-
-      .message1 {
-        width: 125%;
+      .message, .message1 {
+        width: 60vw;
+        max-width: none;
       }
 
       .message-container {
-        top: 65%;
-        max-width: none;          /* Không giới hạn chiều rộng */
-        left: 15%;                /* Căn giữa ngang */
-        margin-left: 15%;
-        transform: translate(-50%, -50%); /* Dịch tâm để logo đúng giữa */
+        width: 80vw;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- Hình logo chính có hiệu ứng nổi và sáng -->
-  <img src="image/1-02.png" alt="BEYOND THE TOP" class="logo-text">
-
-  <!-- Nút nhấn để hiển thị hình ảnh cảm ơn -->
+  <!-- Nút xuất hiện đầu tiên -->
   <button class="accept-btn" onclick="showMessage()">Accept Now!</button>
 
-  <!-- Phần hiển thị khi bấm nút (ẩn lúc đầu) -->
+  <!-- Hình logo chính -->
+  <img src="image/1-02.png" alt="BEYOND THE TOP" class="logo-text" >
+
+  <!-- Các hình ảnh cảm ơn -->
   <div class="message-container" id="messageContainer">
     <img id="thankImage1" class="message" src="image/1-04.png" alt="Đoàn Kết">
     <img id="thankImage2" class="message1" src="image/1-05.png" alt="Vững Mạnh">
   </div>
 
   <script>
-    // Hàm xử lý khi người dùng nhấn nút
     function showMessage() {
-      document.querySelector(".accept-btn").style.display = "none"; // Ẩn nút
-      document.getElementById("messageContainer").style.display = "flex"; // Hiện ảnh
+      document.querySelector(".accept-btn").style.display = "none";
+      document.querySelector(".logo-text").style.display = "block";
+      document.getElementById("messageContainer").style.display = "flex";
     }
   </script>
 
