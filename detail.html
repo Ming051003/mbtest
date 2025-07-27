@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Beyond The Top</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      background: url('image/1-01.png') no-repeat center center fixed;
+      background-size: contain;
+      background-color: #000;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      position: relative;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 60%;
+      left: 67%;
+      transform: translate(-50%, -50%) scale(1.4);
+      text-align: center;
+      z-index: 10;
+    }
+
+    @keyframes float-glow {
+      0%, 100% {
+        transform: translate(-50%, -50%) scale(1.2) translateY(0px);
+        filter: drop-shadow(0 0 10px #ff00ff);
+      }
+      50% {
+        transform: translate(-50%, -50%) scale(1.2) translateY(-10px);
+        filter: drop-shadow(0 0 25px #ff00ff);
+      }
+    }
+
+    .logo-text {
+      width: 90%;
+      max-width: 500px;
+      height: auto;
+      animation: float-glow 3s ease-in-out infinite;
+    }
+
+    .message-wrapper {
+      position: absolute;
+      top: 75%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 11;
+      text-align: center;
+    }
+
+    .message-wrapper img {
+      width: 300px;
+      display: block;
+      margin: 10px auto;
+      animation: fadeIn 2s ease-in-out forwards;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(10px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Logo chữ -->
+  <div class="overlay">
+    <img src="image/1-02.png" alt="BEYOND THE TOP" class="logo-text">
+  </div>
+
+  <!-- Dòng chữ ĐOÀN KẾT & VỮNG MẠNH -->
+  <div class="message-wrapper">
+    <img src="image/1-04.png" alt="ĐOÀN KẾT">
+    <img src="image/1-05.png" alt="VỮNG MẠNH">
+  </div>
+
+</body>
+</html>
